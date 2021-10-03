@@ -1,0 +1,56 @@
+
+
+<div class="container">
+  
+    <form
+        [formGroup]="profileForm"
+        (ngSubmit)="onSubmit()"
+        autocomplete="off"
+    >
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" name="username" id="username" class="form-control"
+            formControlName="username"
+          >
+
+          <small class="text-danger" *ngIf="profileForm.controls.username.touched && profileForm.controls.username.errors?.required" >
+            Username is required
+          </small>
+          <small class="text-danger" *ngIf="profileForm.controls.username.touched && profileForm.controls.username.errors?.minlength" >
+              Username minlength is  profileForm.controls.username.errors.minlength.requiredLength</small>
+          </div>
+
+    
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" class="form-control" 
+            formControlName="email"
+            >
+            <!-- <small class="text-danger">Email is required</small> -->
+        </div>
+
+        <div formGroupName="info">
+          <div class="form-group">
+            <label for="phone">Phone</label>
+              <input type="text" name="phone" id="phone" class="form-control" 
+              formControlName="phone"
+              >
+          </div>
+  
+          <div class="form-group">
+            <label for="phone">Mobile</label>
+              <input type="text" name="mobile" id="mobile" class="form-control" 
+              formControlName="mobile"
+              >
+          </div>
+        </div>
+
+        
+    
+        <div class="form-group">
+            <input [disabled]="!profileForm.valid" type="submit" class="btn btn-primary" value="Submit">
+            <input   type="button" class="btn btn-danger" value="Reset">
+        </div>
+    </form>
+    
+</div>
