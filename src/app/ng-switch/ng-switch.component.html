@@ -1,0 +1,29 @@
+<p>ng-switch works!</p>
+<span [ngSwitch]="toeChoice">
+	<span *ngSwitchCase="'abc'">ABC</span>
+	<span *ngSwitchCase="'def'">DEF</span>
+	<span *ngSwitchDefault>OTHER</span>
+</span>
+
+
+<div role="tabpanel">
+	<!-- Nav tabs -->
+	<ul class="nav nav-tabs" role="tablist">
+		<li role="presentation" [class.active]="tab == 'home'" (click)="changeTab('home')">
+			<a href="#home" aria-controls="home" role="tab" data-toggle="tab">home</a>
+		</li>
+		<li role="presentation" [class.active]="tab == 'profile'" (click)="changeTab('profile')">
+			<a href="#profile" aria-controls="tab" role="tab" data-toggle="tab">profile</a>
+		</li>
+	</ul>
+
+	<!-- Tab panes -->
+	<div class="tab-content">
+		<div role="tabpanel" class="tab-pane" [class.active]="tab == 'home'" id="home">
+			tab home
+		</div>
+		<div role="tabpanel" class="tab-pane" [class.active]="tab == 'profile'" id="profile">
+			tab profile
+		</div>
+	</div>
+</div>

@@ -1,0 +1,95 @@
+<!--Day 3: Angular Data Binding-->
+<h2>Hello there!</h2>
+<!--DATA BINDING-->
+<h3>Your name: {{ user.name }}</h3>
+<p>Your name: {{ user.age }}</p>
+
+<!--PROPERTY BINDING-->
+<input type="text" [value]="user.name" />
+<input [type]="inputtype" [value]="user.name" />
+
+<!--EVENT BINDING-->
+<button id="btnClick" (click)="handler()">Click</button>
+<br>
+<br>
+<!--TWO-WAY BINDING -->
+<!-- Cach viet tat -->
+<input type="text" [(ngModel)]="user.name">
+<!-- Cach viet day du -->
+<input type="text" [ngModel]="user.name" (ngModelChange)="user.name = $event" />
+
+<!--Day 4: Angular Structure Directive - NgIf-->
+<!--CẤU TRÚC IF-ELSE-->
+<div *ngIf="user.age >= 13">
+  Bạn có thể xem nội dung PG-13
+</div>
+<div *ngIf="user.age < 13">
+  Bạn không thể xem nội dung PG-13
+</div>
+<br>
+
+<div *ngIf="user.age >= 13; else noCHECKUSERAGE">
+  Bạn có thể xem nội dung PG-13
+</div>
+<ng-template #noCHECKUSERAGE>
+  <div>
+    Bạn không thể xem nội dung PG-13
+  </div>
+</ng-template>
+<br>
+<!--Viet tat cua <div *ngIf="user.age >= 13; else noCHECKUSERAGE">-->
+<ng-template [ngIf]="user.age >= 13" [ngIfElse]="noCHECKUSERAGE">
+  <div>
+    Bạn có thể xem nội dung PG-13
+  </div>
+</ng-template>
+
+
+<!--Day 5: Angular Structure Directive - NgForOf-->
+
+<!--FOR-->
+<div *ngFor="let author of authors; index as idx; count as total">
+	{{ author.firstName }} - {{ author.lastName }} - {{ idx }} - {{ total }}
+</div>
+<!--FOR-->
+<ng-template
+  ngFor
+  [ngForOf]="authors"
+  let-author
+  let-idx="index"
+  let-total="count"
+>
+	<ng-template [ngIf]="idx == 0">
+	  # {{ author.firstName }} - {{ author.lastName }} - {{ idx }} - {{ total }}
+	</ng-template>
+	
+</ng-template>
+
+
+
+<!--Day 6: Attribute Directive - Class and Style-->
+<br>
+<button class="btn" (click)=" isDanger = !isDanger ">Click me isDanger</button>
+<br>
+<button class="btn" (click)=" isWarning = !isWarning ">Click me isWarning</button>
+
+<!--div class="box" [class.border-red]="isDanger" [class.bg-yellow]="isWarning"></div-->
+
+<!--div class="box" [class]="['border-red'=>isDanger,'bg-yellow'=>isWarning]"></div-->
+
+<div class="box" [class]="{'border-red':isDanger,'bg-yellow':isWarning}"></div>
+
+<br>
+<br>
+
+<p 
+[style.color]="'red'" 
+[style.backgroundColor]="'yellow'"
+[style.fontSize.px]="'20'"
+>Hello</p>
+
+<p [style]="{ color: 'red', backgroundColor : 'yellow' }" 
+>Hello</p>
+
+<p [style.--text-color]="isDanger ? 'red' : 'yellow'" [style]="{ color: 'var(--text-color)' }" 
+>Hello 2</p>

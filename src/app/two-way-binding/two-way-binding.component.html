@@ -1,0 +1,7 @@
+<label for="example-ngModel">{{ firstName }}</label>
+<br>
+<input [(ngModel)]="firstName" id="example-ngModel">
+
+<label for="without">without NgModel:</label>
+<!--input [value]="firstName" (input)="firstName=$event.target.value" id="without"-->
+

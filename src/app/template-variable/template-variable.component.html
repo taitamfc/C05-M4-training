@@ -1,0 +1,8 @@
+<input #phone placeholder="phone number" />
+<input ref-fax placeholder="phone number" />
+
+<!-- lots of other elements -->
+
+<!-- phone refers to the input element; pass its `value` to an event handler -->
+<button (click)="callPhone(phone.value)">Call Phone</button>
+<button (click)="callPhone(fax.value)">Call Fax</button>

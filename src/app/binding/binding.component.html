@@ -1,0 +1,14 @@
+<h3>{{ title }}</h3>
+<h3>{{ personObj.name }}</h3>
+<h3>{{ showInfo() }}</h3>
+<a href="{{ link }}">Template syntax</a>
+<br>
+<a [href]="link">Template syntax 1</a>
+<a bind-href="link">Template syntax 1</a>
+
+<table border="1">
+	<tr>
+		<td [attr.colspan]="1" [class.is-active]="1" [style.color]="'red'">ABC</td>
+		<td [attr.colspan]="1">ABC</td>
+	</tr>
+</table>

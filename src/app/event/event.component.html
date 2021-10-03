@@ -1,0 +1,17 @@
+<p>event works!</p>
+<button class="btn btn-info" (click)="clickMe1()">Button 1</button>
+
+<button class="btn btn-info" on-click="clickMe2( )">Button 2</button>
+
+<div on-click="divClick()">
+	<button class="btn btn-success" on-click="btnClick()">Button 3</button>
+</div>
+
+<br>
+<h3>Tags</h3>
+<div class="form-group">
+	<input type="text" class="form-control" name="tag" (keyup)="onKeyUp($event)">
+</div>
+<div class="form-group">
+	<div id="result-tag"></div>
+</div>

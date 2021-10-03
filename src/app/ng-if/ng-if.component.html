@@ -1,0 +1,23 @@
+<p *ngIf="isShow">ng-if works!</p>
+<p [class.hidden]="!isShow">ng-if works!</p>
+
+<div class="form-group">
+	<input type="text" name="" id="input" class="form-control" [(ngModel)]="the_number">
+</div>
+<br>
+<div *ngIf="the_number > 10" class="form-group">
+	<div class="alert alert-danger">
+		<strong>Number is greater than 10</strong>
+	</div>
+</div>
+
+
+<div class="form-group">
+	<input type="number" name="" id="input2" class="form-control" #newItem (keyup)="0" >
+</div>
+<br>
+<div *ngIf="newItem.value" class="form-group">
+	<div class="alert alert-danger">
+		<strong>Number is greater than 1</strong>
+	</div>
+</div>
