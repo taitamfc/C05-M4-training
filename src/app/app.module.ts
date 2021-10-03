@@ -7,15 +7,18 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 
+/* To use router */
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 /* Hello Component*/
 import { HelloComponent } from './hello/hello.component';
+
 /* Binding*/
 import { BindingComponent } from './binding/binding.component';
 import { EventComponent } from './event/event.component';
 import { TwoWayBindingComponent } from './two-way-binding/two-way-binding.component';
+
 /* Directive*/
 import { NgIfComponent } from './ng-if/ng-if.component';
 import { NgForComponent } from './ng-for/ng-for.component';
@@ -32,12 +35,19 @@ import { OutputComponent } from './output/output.component';
 
 /* Form*/
 import { FormTemplateDrivenComponent } from './form-template-driven/form-template-driven.component';
-
 import { FormDataDrivenComponent } from './form-data-driven/form-data-driven.component';
 import { FormDataDrivenBuilderComponent } from './form-data-driven-builder/form-data-driven-builder.component';
-import { ProductsComponent } from './tutorial-service/components/products.component';
 
-//import { ProductService } from './tutorial-service/services/product.service';
+/* Service and Router*/
+/* Service */
+//import { ProductsComponent } from './tutorial-service/components/products.component';
+
+/* Router */
+import { ProductsComponent } from './tutorial-router/components/products.component';
+import { ProductComponent } from './tutorial-router/components/product.component';
+import { ProductEditComponent } from './tutorial-router/components/product-edit.component';
+import { ProductDeleteComponent } from './tutorial-router/components/product-delete.component';
+
 
 @NgModule({
   declarations: [
@@ -57,7 +67,10 @@ import { ProductsComponent } from './tutorial-service/components/products.compon
     FormTemplateDrivenComponent,
     FormDataDrivenComponent,
     FormDataDrivenBuilderComponent,
-    ProductsComponent
+    ProductsComponent,
+    ProductComponent,
+    ProductEditComponent,
+    ProductDeleteComponent,
   ],
   imports: [
     CommonModule,
