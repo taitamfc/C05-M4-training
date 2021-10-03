@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ICourse } from './../defines/course.interface';
+import { IItem } from './../defines/course.interface';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable, of } from 'rxjs';
@@ -19,49 +19,49 @@ export class ApiService {
 		
 	}
 
-	getItems(): Observable<ICourse[]> {
-		return this._httpService.get<ICourse[]>(this.apiUrl)
+	getAll(): Observable<IItem[]> {
+		return this._httpService.get<IItem[]>(this.apiUrl)
 			.pipe(
 				map( response => response ),
-				catchError(this.handleError<ICourse[]>('getItems', []))
+				catchError(this.handleError<IItem[]>('getItems', []))
 			);
 	}
-	getItem(id: number): Observable<ICourse[]> {
-		return this._httpService.get<ICourse[]>(this.apiUrl+id)
+	find(id: number): Observable<IItem[]> {
+		return this._httpService.get<IItem[]>(this.apiUrl+id)
 			.pipe(
 				map( this.extractData ),
 				tap(_ => this.log(`fetched hero id=${id}`)),
-				catchError(this.handleError<ICourse[]>(`getHero id=${id}`)
+				catchError(this.handleError<IItem[]>(`getHero id=${id}`)
 			)
 		);
 	}
 	
-	addItem( course: ICourse ): Observable<ICourse[]> {
-		return this._httpService.post<ICourse[]>(this.apiUrl, course, this.httpOptions)
+	store( course: IItem ): Observable<IItem[]> {
+		return this._httpService.post<IItem[]>(this.apiUrl, course, this.httpOptions)
 			.pipe(
 				map( this.extractData ),
 				tap( (course: any) => this.log(`added hero id=${course.id}`),
-				catchError(this.handleError<ICourse>('addHero'))
+				catchError(this.handleError<IItem>('addHero'))
 			)
 		);
 	}
 
-	editItem( id: number, course: ICourse ): Observable<ICourse[]> {
-		return this._httpService.put<ICourse[]>(this.apiUrl+id, course, this.httpOptions)
+	update( id: number, course: IItem ): Observable<IItem[]> {
+		return this._httpService.put<IItem[]>(this.apiUrl+id, course, this.httpOptions)
 			.pipe(
 				map( this.extractData ),
 				tap( (course: any) => this.log(`updated hero id=${course.id}`),
-				catchError( this.handleError<ICourse>('editItem') )
+				catchError( this.handleError<IItem>('editItem') )
 			)
 		);
 	}
 
-	deleteHero(id: number): Observable<ICourse[]> {
-		return this._httpService.delete<ICourse[]>(this.apiUrl+id)
+	delete(id: number): Observable<IItem[]> {
+		return this._httpService.delete<IItem[]>(this.apiUrl+id)
 			.pipe(
 				map( this.extractData ),
 				tap( _ => this.log(`deleted hero id=${id}`) ),
-				catchError( this.handleError<ICourse[]>(`deleteHero id=${id}`) )
+				catchError( this.handleError<IItem[]>(`deleteHero id=${id}`) )
 			);
 	}
 

@@ -35,8 +35,9 @@ import { FormTemplateDrivenComponent } from './form-template-driven/form-templat
 
 import { FormDataDrivenComponent } from './form-data-driven/form-data-driven.component';
 import { FormDataDrivenBuilderComponent } from './form-data-driven-builder/form-data-driven-builder.component';
+import { ProductsComponent } from './tutorial-service/components/products.component';
 
-
+//import { ProductService } from './tutorial-service/services/product.service';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,7 @@ import { FormDataDrivenBuilderComponent } from './form-data-driven-builder/form-
     FormTemplateDrivenComponent,
     FormDataDrivenComponent,
     FormDataDrivenBuilderComponent,
-    
+    ProductsComponent
   ],
   imports: [
     CommonModule,
@@ -65,7 +66,9 @@ import { FormDataDrivenBuilderComponent } from './form-data-driven-builder/form-
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    //ProductService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
